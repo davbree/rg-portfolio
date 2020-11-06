@@ -54,12 +54,6 @@ const IndexPage = ({ data }) => (
       })}
 
     {data.contentfulSiteInformation.menus
-      .filter(item => item === "Photos")
-      .map(t => {
-        return <Photos data={data.contentfulPhotos}></Photos>;
-      })}
-
-    {data.contentfulSiteInformation.menus
       .filter(item => item === "Contact")
       .map(t => {
         return <Contact data={data.contentfulAboutMe.gmail}></Contact>;
@@ -187,19 +181,6 @@ export const pageQuery = graphql`
               sizes
             }
           }
-        }
-      }
-    }
-    contentfulPhotos {
-      photos {
-        fluid(maxWidth: 600) {
-          base64
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
         }
       }
     }
